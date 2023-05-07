@@ -1,3 +1,5 @@
+import * as dotenv from "dotenv";
+dotenv.config();
 import userModel from "../models/userModel.js";
 import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
@@ -102,7 +104,7 @@ export const loginController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error in login",
+      message: error.message,
       error,
     });
   }
