@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoute.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
+import { fileURLToPath } from 'url';
 
 //configure env
 dotenv.config();
@@ -16,7 +17,8 @@ connectDB();
 
 //rest object
 const app = express();
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 //middelwares
 app.use(cors());
 app.use(express.json());
